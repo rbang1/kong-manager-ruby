@@ -1,0 +1,22 @@
+---
+api1:
+  config:
+    uris: "/api1/view"
+    methods: "GET, POST, OPTIONS"
+    upstream_url: "http://mockbin.org"
+  plugins:
+    cors:
+      origin: "*"
+      methods: "GET, POST"
+      headers: "Content-Type"
+    bot-detection:
+api2:
+  config:
+    uris: "/api2/create"
+    methods: "POST"
+    upstream_url: "http://mockbin.org"
+  plugins:
+    bot-detection:
+    rate-limiting:
+      second: 5
+      hour: 10000
